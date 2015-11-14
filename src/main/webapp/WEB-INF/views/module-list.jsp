@@ -30,6 +30,9 @@ var currentModuleId;
 	            moduleName: {
 	            	required:true//,
 	            	//remote: './modules/exist'
+	            },
+	            serialNumber: {
+	            	required:true//,
 	            }
 	        },
 	        
@@ -37,7 +40,9 @@ var currentModuleId;
 	        messages: {
 	        	moduleName: {
 	        		required : "Please enter Module name"//,
-	        		//remote: "Module already Exist"
+	        	},
+	        	serialNumber: {
+	        		required : "Please enter Serial Number"//,
 	        	}
 	        },
 	        
@@ -73,14 +78,25 @@ var currentModuleId;
 				
 			}
 		});
+		
+		$("#cancel-btn").click(function(){
+			$("#moduleId").val(0);
+			$("#moduleName").val('');
+			$("#serialNumber").val('');
+			$("#active").prop("checked", true);
+			$("#active").val(1);
+			$("#submit-btn").html('Add');
+			$("#add-edit-module").attr("action", "./modules/add");
+		});
 	});
 	
-	function updateModule(moduleId, moduleName, active){
+	function updateModule(moduleId, moduleName, active, serialNumber){
 			//alert(moduleId +" - "+ moduleName +" - "+ active);
 			currentModuleId = moduleId
 			console.log(currentModuleId);
 			$("#moduleId").val(moduleId);
 			$("#moduleName").val(moduleName);
+			$("#serialNumber").val(serialNumber);
 			if(active == 1){
 				$("#active").prop("checked", true);
 				$("#active").val(1);
@@ -88,6 +104,9 @@ var currentModuleId;
 				$("#active").prop("checked", false);
 				$("#active").val(0);
 			} 
+			
+			$("#submit-btn").html('Update');
+			$("#add-edit-module").attr("action", "./modules/update");
 		}
 </script>
 
@@ -101,7 +120,7 @@ var currentModuleId;
 			<div class="layout-container">
 				<div class="">
 					<!--=== Page Header ===-->
-					<div class="page-header">
+					<!-- <div class="page-header">
 
 						<div class="container">
 
@@ -207,7 +226,7 @@ var currentModuleId;
 												</ul></li>
 										</ul>
 									</div>
-									<!-- /.navbar-collapse -->
+									/.navbar-collapse
 								</nav>
 							</div>
 
@@ -228,7 +247,7 @@ var currentModuleId;
 
 
 
-					</div>
+					</div> -->
 					<!-- /Page Header -->
 
 					<div
@@ -253,120 +272,76 @@ var currentModuleId;
 
 						<div id="my_documents_container" class="column-one clearfix">
 							<div class="grid box-filters">
-								<!-- <div class="table-header">
-									<form class="form-inline ng-pristine ng-valid" method="get"
-										action="">
+								<div class="table-header">
+									<form id="add-edit-module" class="form-inline ng-pristine ng-valid" method="post"
+										action="./modules/add">
 										<div class="row-fluid">
 											<div class="span4">
 												<div class="">
-													<table width="100%" cellspacing="0" cellpadding="0">
-														<tbody>
-															<tr>
-																<td class="padding0 no_border" width="15%"><label
-																	class="float_left mrgall-01 font13"> <strong
-																		class="">Department</strong>
-																</label></td>
-																<td class="no_border"><div
-																		class="controls project-input-contr">
-																		<div
-																			class="select2-container col-md-6 select2 full-width-fix required"
-																			id="s2id_autogen3" style="width: 263px;">
-																			<a href="javascript:void(0)" onclick="return false;"
-																				class="select2-choice select3-choice select4-choice select5-choice"
-																				tabindex="-1"> <span class="select2-chosen">Select
-																					Department</span><abbr class="select2-search-choice-close"></abbr>
-																				<span class="select2-arrow"><b></b></span></a><input
-																				class="select2-focusser select2-offscreen"
-																				type="text" id="s2id_autogen4">
-																			<div
-																				class="select2-drop select2-display-none select2-with-searchbox">
-																				<div class="select2-search">
-																					<input type="text" autocomplete="off"
-																						autocorrect="off" autocapitalize="off"
-																						spellcheck="false" class="select2-input">
-																				</div>
-																				<ul class="select2-results">
-																				</ul>
-																			</div>
-																		</div>
-																		<select name="department"
-																			class="col-md-6 select2 full-width-fix required select2-offscreen"
-																			tabindex="-1">
-																			<option selected="">Select Department</option>
-																			<option value="1">Admin</option>
-																			<option value="2">Mechanical</option>
-																			<option value="3">Technical</option>
-																			<option value="4">HR &amp; Admin</option>
-																			<option value="5">Stores</option>
-																			<option value="6">Safety</option>
-																			<option value="7">Finance &amp; Accounts</option>
-																			<option value="8">Stores</option>
-																			<option value="9">PDM</option>
-																			<option value="10">HR</option>
-																		</select>
-																	</div></td>
-															</tr>
-														</tbody>
-													</table>
+												<input type="hidden" name="id" id="moduleId" value="0">
+													
 												</div>
 											</div>
+
 											<div class="span4">
 												<div class="">
 													<table width="100%" cellspacing="0" cellpadding="0">
-														<tbody>
-															<tr>
-																<td class="padding0 no_border" width="15%"><label
-																	class="float_left mrgall-01 font13"> <strong
-																		class="">Job Category</strong>
-																</label></td>
-																<td class="no_border"><div
-																		class="controls project-input-contr">
-																		<div
-																			class="select2-container col-md-6 select2 full-width-fix required"
-																			id="s2id_autogen5" style="width: 253px;">
-																			<a href="javascript:void(0)" onclick="return false;"
-																				class="select2-choice select3-choice select4-choice select5-choice"
-																				tabindex="-1"> <span class="select2-chosen">Select
-																					Job Category</span><abbr
-																				class="select2-search-choice-close"></abbr> <span
-																				class="select2-arrow"><b></b></span></a><input
-																				class="select2-focusser select2-offscreen"
-																				type="text" id="s2id_autogen6">
-																			<div
-																				class="select2-drop select2-display-none select2-with-searchbox">
-																				<div class="select2-search">
-																					<input type="text" autocomplete="off"
-																						autocorrect="off" autocapitalize="off"
-																						spellcheck="false" class="select2-input">
-																				</div>
-																				<ul class="select2-results">
-																				</ul>
-																			</div>
-																		</div>
-																		<select name="jobcategory"
-																			class="col-md-6 select2 full-width-fix required select2-offscreen"
-																			tabindex="-1">
-																			<option selected="">Select Job Category</option>
-																			<option value="1">Job Category 1</option>
-																			<option value="2">Job Category 2</option>
-																			<option value="3">Job Category 3</option>
-																			<option value="4">Job Category 4</option>
-																		</select>
-																	</div></td>
-															</tr>
-														</tbody>
+														<tr>
+															<td class="padding0 no_border" width="15%"><label
+																class="float_left mrgall-01 font13"> <strong
+																	class="">Module Name</strong>
+															</label></td>
+															<td class="no_border"><div
+																	class="controls project-input-contr">
+																	<input type="text"
+																	class="controls project-input-contr"
+																	name="moduleName" id="moduleName" >
+																</div></td>
+															
+															
+														</tr>
 													</table>
 												</div>
 											</div>
-											<div class="span3">
-												<button class="btn btn-actions">
-													<i class="icon-search"></i>
-												</button>
-												<a href="#" class="btn-link btn-small">Clear</a>
+
+											<div>
+												<table width="10%" cellspacing="0" cellpadding="0">
+													<tr>
+														<td><label class="float_left mrgall-01 font13">
+																<strong class="">Sr.No.</strong>
+														</label></td>
+														<td class="no_border"><div>
+																<input type="text"
+																	class="select2-input select2-default"
+																	id="serialNumber" name="serialNumber" style="width: 100%;">
+															</div></td>
+														
+
+														<td><label class="float_left mrgall-01 font13">
+																<strong class="">Active</strong>
+														</label></td>
+														<td class="no_border"><div>
+																<input type="checkbox" name="moduleStatus" id="active">
+															</div></td>
+													</tr>
+													<tr>
+														<td class="no_border" style="position:relative;left: 15px">
+															<button type="submit" id="submit-btn"
+																class="btn btn-xl btn-success button-submit font13"
+																>Add</button>
+														</td>
+														<td class="no_border" style="position:relative;left: 25px">
+															<button type="button"
+																class="btn btn-xl  font13"
+																data-dismiss="modal" id="cancel-btn">Cancel</button>
+														</td>
+													</tr>
+												</table>
 											</div>
 										</div>
+
 									</form>
-								</div> -->
+								</div>
 								<div class="grid-title">
 									<div class="pull-left">Module List</div>
 									<!--<div class="pull-right">
@@ -420,12 +395,12 @@ var currentModuleId;
 													<c:if test="${module.moduleStatus eq 0}">
 														<td class=" ">Inactive</td>
 													</c:if>
-													<td class=" "><a href="#assigntoProject"
-														data-toggle="modal" data-original-title="Edit"
+													<td class=" "><a href="#"
+														 data-original-title="Edit"
 														data-placement="top"
 														style="border-radius: 40px; padding: 4px 6px 2px;"
 														class="btn btn-xl btn-success button-submit font13 bs-tooltip" 
-														onclick="updateModule(${module.id}, '${module.moduleName}', ${module.moduleStatus})">
+														onclick="updateModule(${module.id}, '${module.moduleName}', ${module.moduleStatus}, ${module.serialNumber})">
 															<i class="icon-cog font14"></i>
 													</a></td>
 												</tr>
@@ -499,7 +474,7 @@ var currentModuleId;
 					</div>
 					<!-- Modal dialog -->
 					<div class="modal fade" id="assigntoProject">
-					<form action="./modules/update" id="add-edit-module" method="post" novalidate="novalidate">
+					<form action="./modules/add" id="add-edit-module" method="post" >
 						<div class="modal-dialog">
 							<div class="modal-content">
 								<div class="modal-header">
@@ -577,7 +552,7 @@ var currentModuleId;
 													data-dismiss="modal">Cancel</button>
 												<!-- <a href="admin-projects.html"
 													class="btn btn-xl btn-success button-submit font13 float_right">Submit</a> -->
-													<button type="button"
+													<button type="submit"
 													class="btn btn-xl btn-success button-submit font13 float_right" id="add-edit-btn">Add</button>
 											</div>
 										</div>

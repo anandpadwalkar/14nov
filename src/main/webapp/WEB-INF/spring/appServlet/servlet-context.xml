@@ -1,10 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-    Copyright (c) 2015 MasterSoft.
-    Team Java
-    All rights reserved.
- -->
-
 <beans:beans xmlns="http://www.springframework.org/schema/mvc"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:beans="http://www.springframework.org/schema/beans"
@@ -45,7 +39,9 @@
 	<annotation-driven>
     <message-converters>
         <beans:bean class="org.springframework.http.converter.StringHttpMessageConverter"/>
-        <beans:bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter"/>
+        <beans:bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+        	<beans:property name="supportedMediaTypes" value="application/json"></beans:property>
+        </beans:bean>
     </message-converters>
 </annotation-driven>
 
@@ -77,7 +73,7 @@
 	
 	<beans:bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<beans:property name="driverClassName" value="org.postgresql.Driver" />
-		<beans:property name="url" value="jdbc:postgresql://localhost:5432/iitd1" />
+		<beans:property name="url" value="jdbc:postgresql://localhost:5432/iitd" />
 		<beans:property name="username" value="postgres" />	
 		<beans:property name="password" value="root"/>
 	</beans:bean>
@@ -90,7 +86,7 @@
                 <beans:prop key="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</beans:prop>  
                 <!-- <prop key="hibernate.hbm2ddl.auto">update</prop>  --> 
                 <beans:prop key="hibernate.show_sql">true</beans:prop>  
-                  
+                 <!-- <beans:prop key="hibernate.current_session_context_class">thread</beans:prop> --> 
             </beans:props>  
         </beans:property>  
         

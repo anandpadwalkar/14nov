@@ -1,10 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-    Copyright (c) 2015 MasterSoft.
-    Team Java
-    All rights reserved.
- -->
-
 <beans:beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:security="http://www.springframework.org/schema/security"
 	xmlns:beans="http://www.springframework.org/schema/beans"
@@ -14,8 +8,18 @@
 <beans:import resource="servlet-context.xml"/>
 
 <security:http auto-config="true" use-expressions="true" >
+		<security:intercept-url pattern="/resources/**" access="permitAll()" />
+		<security:intercept-url pattern="/login" access="permitAll()"  />
 		<security:intercept-url pattern="/**" access="isAuthenticated()" />
-		<security:form-login default-target-url="/hi"  authentication-success-handler-ref="authenticationSuccessHandler"/>
+		<security:form-login login-page="/login"  authentication-success-handler-ref="authenticationSuccessHandler" authentication-failure-handler-ref="authenticationSuccessHandler"/>
+		<security:logout logout-success-url="/" delete-cookies="JSESSIONID" invalidate-session="true"/>
+		<security:session-management invalid-session-url="/invalid-session" session-authentication-error-url="/invalid-session" >
+			<security:concurrency-control max-sessions="1" error-if-maximum-exceeded="true" expired-url="/invalid-session"/>
+		</security:session-management>
+		
+		<security:headers>
+			<security:cache-control/>
+		</security:headers>
 	</security:http>
 
 	<security:authentication-manager>
@@ -26,7 +30,7 @@
 	    </security:user-service>
 	  </security:authentication-provider > -->
 	 		
-	  <security:authentication-provider user-service-ref="userDetailsService">
+	  <security:authentication-provider user-service-ref="userDetailsService" >
 	  	
 	  </security:authentication-provider>
 	</security:authentication-manager>

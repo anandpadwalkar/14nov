@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!-- <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -18,7 +19,7 @@
         </ul>
     
     <!-- Logo --> 
-    <a class="navbar-brand" href="index.html"> <img src="assets/img/logo.png" alt="logo"> <strong>RITENOW</strong>Infra </a> 
+    <a class="navbar-brand" href="index.html"> <img src="resources/bootstrap/img/master_logo.png" alt="logo"> <!-- <strong>RITENOW</strong>Infra --> </a> 
     <!-- /logo --> 
     
     <!-- Sidebar Toggler --> 
@@ -51,7 +52,7 @@
         <ul class="dropdown-menu">
            <li><a href="#"><i class="icon-tasks"></i> Help Ritenow Infra</a></li>
            <li class="divider"></li>
-           <li><a href="index.htm"><i class="icon-off "></i> Sign Out</a></li>
+           <li><a href="<c:url value="/j_spring_security_logout" />"><i class="icon-off "></i> Sign Out</a></li>
         </ul>
       </li>
       <!-- /user login dropdown -->
