@@ -56,19 +56,19 @@ public class SocietyCreationController {
     }
 
     @RequestMapping(value = "/society/add-society-module", method = RequestMethod.POST)
-    public @ResponseBody boolean addSociety(@ModelAttribute SocietyCreationModel entity,
+    public  String addSociety(@ModelAttribute SocietyCreationModel entity,
         BindingResult result, Model model) {
         logger.info("Society : " + entity);
         int new_soc_id = societyCreationService.addSocietys(entity);
-        return true;
+        return "redirect:/society";
     }
 
     @RequestMapping(value = "/society/update-society-module", method = RequestMethod.POST)
-    public @ResponseBody boolean updateSociety(@ModelAttribute SocietyCreationModel entity,
+    public String updateSociety(@ModelAttribute SocietyCreationModel entity,
         BindingResult result, Model model) {
         logger.info("Society : " + entity);
         boolean new_soc_id = societyCreationService.updateSociety(entity);
-        return true;
+        return "redirect:/society";
     }
     
     // ================================== society module End here ==============================================

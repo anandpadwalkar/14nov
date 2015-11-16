@@ -1,10 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-    Copyright (c) 2015 MasterSoft.
-    Team Java
-    All rights reserved.
- -->
-
 <!DOCTYPE hibernate-configuration SYSTEM 
 "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 
@@ -12,6 +6,21 @@
 	<session-factory>
 		<mapping class="com.iitms.rfcampusdata.authentication.entity.User" />
 		<mapping class="com.iitms.rfcampusdata.authentication.entity.Roles" />
+		<!-- <mapping class="com.iitms.rfcampusdata.authentication.entity.Menu" /> -->
 		<mapping class="com.iitms.rfcampusdata.authentication.entity.UserRoles" />
+		<mapping class="com.iitms.rfcampusdata.authentication.entity.RoleMenuAllocation" />
+		<mapping class="com.iitms.rfcampusdata.authentication.entity.ModuleMasterEntity" />
+		<mapping class="com.iitms.rfcampusdata.authentication.entity.MainMenuEntity" />
+		<mapping class="com.iitms.rfcampusdata.authentication.entity.MenuMasterEntity" />
+		<mapping class="com.iitms.rfcampusdata.authentication.entity.Sample" />
+		<mapping class="com.iitms.rfcampusdata.authentication.entity.CollegeMasterEntity" />
+		<mapping class="com.iitms.rfcampusdata.authentication.entity.SocietyMaster" />
+		<mapping class="com.iitms.rfcampusdata.authentication.entity.UniversityMaster" />
+		<mapping class="com.iitms.rfcampusdata.authentication.entity.RoleTypeMasterEntity" />
+		<mapping class="com.iitms.rfcampusdata.authentication.entity.RoleMasterEntity" />
+		<mapping class="com.iitms.rfcampusdata.authentication.entity.AddressMaster" />
+		<mapping class="com.iitms.rfcampusdata.authentication.entity.CollegeModuleMasterEntity" />
+		
+		<mapping class="com.iitms.rfcampusdata.authentication.entity.Society" />
 	</session-factory>
 </hibernate-configuration>

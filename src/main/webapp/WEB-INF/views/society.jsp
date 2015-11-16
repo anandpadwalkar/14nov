@@ -132,7 +132,7 @@
 	<div class="container">
 		<div class="row">
 
-			<form action="./add-society-module" method="post"
+			<form action="./society/add-society-module" method="post"
 				id="society-add-edit-form">
 				<input type="hidden" id="socId" name="socId" value="0" /> <input
 					type="hidden" id="addId" name="addId" value="0" />
