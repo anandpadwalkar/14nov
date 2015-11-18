@@ -30,6 +30,7 @@ public class AuthenticationSuccessHandlerImpl implements AuthenticationSuccessHa
 	public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication auth)
 			throws IOException, ServletException {
 		//request.getSession().setAttribute("roleId", 1);
+		logger.info("Authentication Success");
 		SessionUser sessionUser = (SessionUser) auth.getPrincipal();
 		int roleId = sessionUser.getRoless().getId();
 		testSession.setUsername(((SessionUser) auth.getPrincipal()).getUsername());
@@ -42,7 +43,7 @@ public class AuthenticationSuccessHandlerImpl implements AuthenticationSuccessHa
     @Override
     public void onAuthenticationFailure(HttpServletRequest request, HttpServletResponse response,
         AuthenticationException exception) throws IOException, ServletException {
-        logger.info("Error : " + exception.getMessage());
+        logger.info("Error : auth fail");
         response.sendRedirect("./login");
         
     }
