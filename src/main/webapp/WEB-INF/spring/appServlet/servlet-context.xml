@@ -67,7 +67,7 @@
 	<!-- jasper xml view resolver end -->
 	
 	
-	<context:component-scan base-package="com.iitms" />
+	<context:component-scan base-package="com.iitms.*" />
 	
 	<!-- <context:property-placeholder location=""/> -->
 	

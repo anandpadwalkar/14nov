@@ -1,4 +1,4 @@
-
+<%@page session="false" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html>
 <head>
@@ -107,7 +107,6 @@
 	src="${pageContext.request.contextPath}/resources/plugins/uniform/jquery.uniform.min.js"></script>
 <!-- Styled radio and checkboxes -->
 <%-- <script type="text/javascript" src="${pageContext.request.contextPath}/resources/plugins/select2/select2.min.js"> --%>
-</script>
 <!-- Styled select boxes -->
 
 <!-- DataTables -->
@@ -189,7 +188,8 @@
 	<!-- Header -->
 
 	<form class="form-vertical login-form"
-		action="<c:url value='j_spring_security_check' />" method="post"
+		action="/rfcampuspresentation/j_spring_security_check"
+		method="post"
 		style="position: relative; width: 100%; height: 100%; z-index: 200">
 
 		<!-- Left Spacing -->
@@ -243,28 +243,9 @@
 		<div class="col-sm-3 col-sm-3 col-sm-offset-0"></div>
 
 	</form>
-	
+
 	<!-- for windows virtual keyboard -->
-	<%
-		try {
 
-			// killProcess();
 
-			try {
-				Thread.sleep(1000);
-			} catch (InterruptedException ex)
-
-			{
-				Thread.currentThread().interrupt();
-			}
-
-			Process proc = Runtime.getRuntime().exec("cmd /c C:\\Windows\\System32\\osk.exe");
-			//proc.destroy();
-		} catch (Exception ex) {
-			ex.printStackTrace();
-		}
-
-		// }
-	%>
 </body>
 </html>

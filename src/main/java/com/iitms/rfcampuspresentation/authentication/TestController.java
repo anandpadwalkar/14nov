@@ -15,65 +15,73 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.iitms.rfcampusdata.authentication.entity.RoleMenuResponse;
+import com.iitms.rfcampusdata.authentication.entity.TestSession;
 import com.iitms.rfcampusdomain.authentication.service.MenuService;
+import com.iitms.rfcampusdomain.authentication.serviceimpl.AuthenticationSuccessHandlerImpl;
 
 @Controller
 public class TestController {
 
-    private static final Logger logger = LoggerFactory.getLogger(TestController.class);
+	private static final Logger logger = LoggerFactory.getLogger(TestController.class);
 
-    @Autowired
-    private MenuService menuService;
+	@Autowired
+	private MenuService menuService;
 
-    @Autowired
-   // private ModuleService moduleService;
+	// @Autowired
+	// private ModuleService moduleService;
+	@Autowired
+	private AuthenticationSuccessHandlerImpl authenticationSuccessHandler;
+	@Autowired
+	private TestSession testSession;
 
-    @RequestMapping(value = "/menus")   
-    public @ResponseBody List<RoleMenuResponse> getMenus() {
-        return menuService.getMenuList(1);
-    }
+	@RequestMapping(value = "/menus")
+	public @ResponseBody List<RoleMenuResponse> getMenus() {
+		return menuService.getMenuList(1);
+	}
 
-    /*
-     * @RequestMapping(value = "/modules", method = RequestMethod.GET) public ModelAndView getModulesList(ModelMap
-     * model){ logger.info("Module List :"); List<ModuleMasterEntity> moduleList = moduleService.listAuthorisedModule();
-     * model.addAttribute("moduleList", moduleList); ModelAndView modelAndView = new ModelAndView("module-list", model);
-     * return modelAndView; }
-     */
+	/*
+	 * @RequestMapping(value = "/modules", method = RequestMethod.GET) public
+	 * ModelAndView getModulesList(ModelMap model){ logger.info("Module List :"
+	 * ); List<ModuleMasterEntity> moduleList =
+	 * moduleService.listAuthorisedModule(); model.addAttribute("moduleList",
+	 * moduleList); ModelAndView modelAndView = new ModelAndView("module-list",
+	 * model); return modelAndView; }
+	 */
 
-    /*
-     * @RequestMapping(value = "/modules/list", method = RequestMethod.GET) public String getModulesList(){ return
-     * "module-list"; }
-     */
-    @RequestMapping(value = "/testing", method = RequestMethod.POST)
-    public String testing(@RequestParam(required = false, defaultValue = "0") int check) {
-        logger.info("Param : " + check);
-        return "test";
-    }
+	/*
+	 * @RequestMapping(value = "/modules/list", method = RequestMethod.GET)
+	 * public String getModulesList(){ return "module-list"; }
+	 */
+	@RequestMapping(value = "/testing", method = RequestMethod.POST)
+	public String testing(@RequestParam(required = false, defaultValue = "0") int check) {
+		logger.info("Param : " + check);
+		return "test";
+	}
 
-    @RequestMapping(value = "/testing", method = RequestMethod.GET)
-    public String testing1() {
+	@RequestMapping(value = "/testing", method = RequestMethod.GET)
+	public String testing1() {
 
-        return "test";
-    }
+		return "test";
+	}
 
-    @RequestMapping(value = "/login", method = RequestMethod.GET)
-    public String login() {
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        logger.info("Already Logged In : " + (auth instanceof AnonymousAuthenticationToken));
-        if (!(auth instanceof AnonymousAuthenticationToken)) {
-            logger.info("Already Logged In");
-            return "redirect:/login1";
-        }
-        return "login1";
-    }
+	@RequestMapping(value = "/login", method = RequestMethod.GET)
+	public String login() {
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		logger.info("Already Logged In : " + !(auth instanceof AnonymousAuthenticationToken)+" - "+testSession.getUsername());
+		if (!(auth instanceof AnonymousAuthenticationToken)) {
+			logger.info("Already Logged In");
+			return "redirect:/admin";
+		}
+		return "login1";
+	}
 
-    @RequestMapping(value = "/invalid-session", method = RequestMethod.GET)
-    public String invalid() {
-        return "invalid-session";
-    }
-    
-    @RequestMapping(value = "/error", method = RequestMethod.GET)
-    public String error404() {
-        return "404";
-    }
+	@RequestMapping(value = "/invalid-session", method = RequestMethod.GET)
+	public String invalid() {
+		return "invalid-session";
+	}
+
+	@RequestMapping(value = "/error", method = RequestMethod.GET)
+	public String error404() {
+		return "404";
+	}
 }
