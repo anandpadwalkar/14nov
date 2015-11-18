@@ -10,62 +10,63 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "ua_university_master")
+@Table(name = "acd_university_master")
 public class UniversityEntity implements Serializable {
-	private static final long serialVersionUID = 1L;
-	@Id 
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "univ_id", columnDefinition = "serial")
-	private int uid;
+    private static final long serialVersionUID = 1L;
 
-	@Column(name = "univ_code")
-	private String univCode;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "univ_id", columnDefinition = "serial")
+    private int uid;
 
-	@Column(name = "univ_name")
-	private String univName;
-	@Column(name = "active")	
+    @Column(name = "univ_code")
+    private String univCode;
+
+    @Column(name = "univ_name")
+    private String univName;
+
+    @Column(name = "active")
     private int active;
-	
-	
-	public int getActive() {
-		return active;
-	}
 
-	public void setActive(int active) {
-		this.active = active;
-	}
+    public int getActive() {
+        return active;
+    }
 
-	public int getUid() {
-		return uid;
-	}
+    public void setActive(int active) {
+        this.active = active;
+    }
 
-	public void setUid(int uid) {
-		this.uid = uid;
-	}
+    public int getUid() {
+        return uid;
+    }
 
-	public String getUnivCode() {
-		return univCode;
-	}
+    public void setUid(int uid) {
+        this.uid = uid;
+    }
 
-	public void setUnivCode(String univCode) {
-		this.univCode = univCode;
-	}
+    public String getUnivCode() {
+        return univCode;
+    }
 
-	public String getUnivName() {
-		return univName;
-	}
+    public void setUnivCode(String univCode) {
+        this.univCode = univCode;
+    }
 
-	public void setUnivName(String univName) {
-		this.univName = univName;
-	}
+    public String getUnivName() {
+        return univName;
+    }
 
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
+    public void setUnivName(String univName) {
+        this.univName = univName;
+    }
 
-	@Override
-	public String toString() {
-		return "UniversityEntity [univCode=" + univCode + ", univName=" + univName + "]";
-	}
+    public static long getSerialversionuid() {
+        return serialVersionUID;
+    }
+
+    @Override
+    public String toString() {
+        return "UniversityEntity [univCode=" + univCode + ", univName=" + univName + "]";
+    }
 
 }
