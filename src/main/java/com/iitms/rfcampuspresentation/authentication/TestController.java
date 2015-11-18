@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.iitms.rfcampusdata.authentication.entity.RoleMenuResponse;
 import com.iitms.rfcampusdomain.authentication.service.MenuService;
-import com.iitms.rfcampusdomain.authentication.service.ModuleService;
 
 @Controller
 public class TestController {
@@ -27,7 +26,7 @@ public class TestController {
     private MenuService menuService;
 
     @Autowired
-    private ModuleService moduleService;
+   // private ModuleService moduleService;
 
     @RequestMapping(value = "/menus")   
     public @ResponseBody List<RoleMenuResponse> getMenus() {
@@ -63,9 +62,9 @@ public class TestController {
         logger.info("Already Logged In : " + (auth instanceof AnonymousAuthenticationToken));
         if (!(auth instanceof AnonymousAuthenticationToken)) {
             logger.info("Already Logged In");
-            return "redirect:/admin";
+            return "redirect:/login1";
         }
-        return "login";
+        return "login1";
     }
 
     @RequestMapping(value = "/invalid-session", method = RequestMethod.GET)
@@ -73,7 +72,7 @@ public class TestController {
         return "invalid-session";
     }
     
-    @RequestMapping(value = "/error     ", method = RequestMethod.GET)
+    @RequestMapping(value = "/error", method = RequestMethod.GET)
     public String error404() {
         return "404";
     }

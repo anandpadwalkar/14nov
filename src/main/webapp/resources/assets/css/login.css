@@ -107,7 +107,7 @@ img {
 
 }
 .navbar .navbar-brand {
-  background-color: #0db0d8;
+  background-color: none;
   padding: 0;
   height: auto;
   line-height: 48px;
@@ -297,7 +297,7 @@ img {
     margin-bottom: 10px;
 }
 .login_title .domain_name {
-    color: #d31517;
+    color: #C2C4CE;
 }
 div.content-wrapper {
     background-color: transparent;
@@ -309,7 +309,7 @@ div.content-wrapper {
     width: 360px;
 }
 .content-wrapper h2 {
-    color: #323232;
+    color: #C2C4CE;
     font-size: 22px;
     font-weight: normal;
     margin-bottom: 30px;
@@ -317,9 +317,9 @@ div.content-wrapper {
 .userId_box input[type="text"], .userId_box input[type="password"] {
     border: 1px solid #ccc;
     box-shadow: 0 1px 0 #eee inset, 0 1px 0 #fff;
-    font-size: 20px !important;
+    font-size: 14px !important;
 	color: #222 !important;
-    height: 40px !important;
+    height: 30px !important;
     margin: 0;
     padding: 4px 20px 4px 4px !important;
     width: 464px !important;
@@ -331,7 +331,7 @@ div.content-wrapper {
     font-size: 12px;
 }
 .lightBlue_link, .app_links {
-    color: #2091d0;
+    color: #FF6C00;
 }
 hr.top-seperator {
     border-bottom: 1px solid #e2e2e2;
@@ -343,7 +343,7 @@ hr.top-seperator {
 }
 .signin_btn {
     margin-top: 35px;
-    padding: 0;
+    padding:  0px 0px 20px -20px;
 }
 .module, p {
     /*font-size: 1.1em;*/
@@ -387,11 +387,11 @@ hr {
 .userId_box.chkbox {
     margin-bottom: -12px;
     overflow: hidden;
-    padding-top: 3px;
+    padding-top: 5px;
     width: 464px;
 }
 .userId_box.chkbox span.rcContainer {
-    padding: 5px 0 3px;
+    padding: 12px 0 3px;
 }
 .userId_box {
     line-height: 140%;
@@ -1028,11 +1028,11 @@ button.actionbutton::-moz-focus-inner, input.actionbutton[type="submit"]::-moz-f
     min-height: 100%;
     margin: 0;
     position: fixed;
-    top: 0;
+    top: 267px;
     width: 100%;
     z-index: -5;
     left:0;
-    opacity:0.08;
+    opacity:0.03;
 }
 .gmap4 {
     height: 768px;
