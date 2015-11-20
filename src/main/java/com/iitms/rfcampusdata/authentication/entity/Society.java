@@ -1,6 +1,5 @@
 package com.iitms.rfcampusdata.authentication.entity;
 
-import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.persistence.CascadeType;
@@ -78,9 +77,6 @@ public class Society {
     @JoinTable(name = "ua_add_master", joinColumns = @JoinColumn(name = "soc_id", updatable = true, insertable = true) , inverseJoinColumns = @JoinColumn(name = "addid") )
     private AddressMaster addressMaster;
 
-    
-    
-    
     public Society(int socId, String socCode, String socName, String socRegno, String socLogo, String ipAddress,
         String macAddress, String societyChairman, String societySecretory, int createdBy, Date createDt,
         int modifiedBy, Date modifiedDt) {
@@ -191,59 +187,16 @@ public class Society {
     public int getCreateBy() {
         return createdBy;
     }
+    // code -1
+    // .print(e);
+    // }
+    // }
 
-    public void setCreateBy(int createBy) {
-        this.createdBy = createBy;
-    }
+    // code-2
+    // .print(e);
+    // }
 
-    public String getCreateDt() {
-        String Date = "";
-        if (modifiedDt != null) {
-            Date = new SimpleDateFormat("dd-MM-yyyy").format(modifiedDt);
-        } else {
-            Date = new SimpleDateFormat("dd-MM-yyyy").format(new Date());
-        }
-        return Date;
-    }
-
-    /*
-     * public void setCreateDt(String createDt) { try { this.createDt = new
-     * SimpleDateFormat("dd-MM-yyyy").parse(createDt); } catch (Exception e) { System.out.print(e); } }
-     */
-    public void setCreateDt(Date createDt) {
-        try {
-            this.createDt = createDt;
-        } catch (Exception e) {
-            System.out.print(e);
-        }
-    }
-
-    public int getModifiedBy() {
-        return modifiedBy;
-    }
-
-    public void setModifiedBy(int modifiedBy) {
-        this.modifiedBy = modifiedBy;
-    }
-
-    public String getModifiedDt() {
-        String Date = "";
-        if (modifiedDt != null) {
-            Date = new SimpleDateFormat("dd-MM-yyyy").format(modifiedDt);
-        } else {
-            Date = new SimpleDateFormat("dd-MM-yyyy").format(new Date());
-        }
-        return Date;
-    }
-
-    public void setModifiedDt(Date modifiedDt) {
-        try {
-            this.modifiedDt = modifiedDt;
-        } catch (Exception e) {
-            System.out.print(e);
-        }
-
-    }
+    // }
 
     @Override
     public String toString() {
@@ -261,8 +214,8 @@ public class Society {
         this.modIds = modIds;
     }
 
-    public void setProperties(String socCode, String socName, String socRegno, String socLogo, String ipAddress, String macAddress,
-        String societyChairman, String societySecretory, int modifiedBy, Date modifiedDt) {
+    public void setProperties(String socCode, String socName, String socRegno, String socLogo, String ipAddress,
+        String macAddress, String societyChairman, String societySecretory, int modifiedBy, Date modifiedDt) {
         this.socCode = socCode;
         this.socName = socName;
         this.socRegno = socRegno;
@@ -291,45 +244,61 @@ public class Society {
 
     @Override
     public boolean equals(Object obj) {
-        if (this == obj)
+        if (this == obj) {
             return true;
-        if (obj == null)
+        }
+        if (obj == null) {
             return false;
-        if (getClass() != obj.getClass())
+        }
+        if (getClass() != obj.getClass()) {
             return false;
+        }
         Society other = (Society) obj;
         if (socCode == null) {
-            if (other.socCode != null)
+            if (other.socCode != null) {
                 return false;
-        } else if (!socCode.equals(other.socCode))
+            }
+        } else if (!socCode.equals(other.socCode)) {
             return false;
-        if (socId != other.socId)
+        }
+        if (socId != other.socId) {
             return false;
+        }
         if (socLogo == null) {
-            if (other.socLogo != null)
+            if (other.socLogo != null) {
                 return false;
-        } else if (!socLogo.equals(other.socLogo))
+            }
+        } else if (!socLogo.equals(other.socLogo)) {
             return false;
+        }
         if (socName == null) {
-            if (other.socName != null)
+            if (other.socName != null) {
                 return false;
-        } else if (!socName.equals(other.socName))
+            }
+        } else if (!socName.equals(other.socName)) {
             return false;
+        }
         if (socRegno == null) {
-            if (other.socRegno != null)
+            if (other.socRegno != null) {
                 return false;
-        } else if (!socRegno.equals(other.socRegno))
+            }
+        } else if (!socRegno.equals(other.socRegno)) {
             return false;
+        }
         if (societyChairman == null) {
-            if (other.societyChairman != null)
+            if (other.societyChairman != null) {
                 return false;
-        } else if (!societyChairman.equals(other.societyChairman))
+            }
+        } else if (!societyChairman.equals(other.societyChairman)) {
             return false;
+        }
         if (societySecretory == null) {
-            if (other.societySecretory != null)
+            if (other.societySecretory != null) {
                 return false;
-        } else if (!societySecretory.equals(other.societySecretory))
+            }
+        } else if (!societySecretory.equals(other.societySecretory)) {
             return false;
+        }
         return true;
     }
 
@@ -337,5 +306,4 @@ public class Society {
         super();
     }
 
-    
 }
