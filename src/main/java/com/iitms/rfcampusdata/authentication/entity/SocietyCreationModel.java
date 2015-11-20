@@ -56,7 +56,7 @@ public class SocietyCreationModel implements Serializable {
     /* For modules */
     private String[] modIds;
 
-    private List<Integer> modules;
+    private transient List<Integer> modules;
 
     private SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
 
@@ -275,8 +275,8 @@ public class SocietyCreationModel implements Serializable {
     }
 
     public Society getSocietyMaster() {
-        Society society = new Society(socIdInAddress, socCode, socName, socRegno, socLogo, "", "",
-            societyChairman, societySecretory, 1, new Date(), 1, new Date());
+        Society society = new Society(socIdInAddress, socCode, socName, socRegno, socLogo, "", "", societyChairman,
+            societySecretory, 1, new Date(), 1, new Date());
         return society;
     }
 
@@ -285,7 +285,7 @@ public class SocietyCreationModel implements Serializable {
             fax2, email1, email2, website, socId, socId * 10000, "", "", 1, new Date(), 1, new Date());
         return addressMaster;
     }
-    
+
     public List<Integer> getSocietyModuleList() {
         List<Integer> list = new ArrayList<Integer>();
         if (modIds != null) {

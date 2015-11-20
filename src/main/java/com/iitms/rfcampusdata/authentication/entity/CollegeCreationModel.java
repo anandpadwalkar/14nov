@@ -30,8 +30,8 @@ public class CollegeCreationModel implements Serializable {
     private String workOrderNumber;
 
     private Date workOrderDate;
-    
-    private String  workOrderDateString;
+
+    private String workOrderDateString;
 
     private int socialCollege;
 
@@ -74,9 +74,11 @@ public class CollegeCreationModel implements Serializable {
 
     /* For modules */
     private String[] moduleIds;
-    private List<Integer> modules;
-    
+
+    private transient List<Integer> modules; // serialized or transient
+
     private SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+
     public int getCollegeId() {
         return collegeId;
     }
@@ -165,8 +167,6 @@ public class CollegeCreationModel implements Serializable {
     public void setSocialCollege(int socialCollege) {
         this.socialCollege = socialCollege;
     }
-
-    
 
     public int getActive() {
         return active;
@@ -327,10 +327,10 @@ public class CollegeCreationModel implements Serializable {
     }
 
     public CollegeMasterEntity getCollegeMasterEntity() {
-        CollegeMasterEntity collegeMasterEntity = new CollegeMasterEntity(collegeId, collegeName, collegeCode,
-            collegeLogo, panNumber, tinNumber, tanNumber, principalName, workOrderNumber, workOrderDate,
-            new Date(), new Date(), socialCollege, active, numberOfUsers, "", "", 1,
-            new Date(), 1, new Date(), societyId, universityId);
+        CollegeMasterEntity collegeMasterEntity =
+            new CollegeMasterEntity(collegeId, collegeName, collegeCode, collegeLogo, panNumber, tinNumber, tanNumber,
+                principalName, workOrderNumber, workOrderDate, new Date(), new Date(), socialCollege, active,
+                numberOfUsers, "", "", 1, new Date(), 1, new Date(), societyId, universityId);
         return collegeMasterEntity;
     }
 
@@ -364,13 +364,13 @@ public class CollegeCreationModel implements Serializable {
         this.modules = modules;
     }
 
-    public List<Integer> getCollegeModuleList(){
+    public List<Integer> getCollegeModuleList() {
         List<Integer> list = new ArrayList<Integer>();
-        if(moduleIds != null){
-            for(String moduleId : moduleIds){
+        if (moduleIds != null) {
+            for (String moduleId : moduleIds) {
                 list.add(Integer.parseInt(moduleId));
             }
-            return list;   
+            return list;
         }
         return null;
     }

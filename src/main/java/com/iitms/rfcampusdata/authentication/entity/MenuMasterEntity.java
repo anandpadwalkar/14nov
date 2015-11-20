@@ -10,7 +10,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.persistence.Transient;
 
 @Entity
 @Table(name = "ua_sub_menu_master")
@@ -63,8 +62,8 @@ public class MenuMasterEntity implements Serializable {
     @JoinColumn(name = "mod_id", referencedColumnName = "mod_id", insertable = false, updatable = false, nullable = false)
     private ModuleMasterEntity module;
 
-    @Transient
-    private List<MenuMasterEntity> subMenu;
+    // @Transient
+    private transient List<MenuMasterEntity> subMenu;
 
     /*
      * @ManyToOne(cascade={CascadeType.ALL}, fetch = FetchType.EAGER, optional = true)

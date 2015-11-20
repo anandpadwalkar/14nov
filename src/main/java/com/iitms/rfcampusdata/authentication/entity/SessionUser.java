@@ -12,83 +12,85 @@ import org.springframework.stereotype.Component;
 
 @Component
 @Scope(value = "session", proxyMode = ScopedProxyMode.TARGET_CLASS)
-public class SessionUser implements Serializable, UserDetails{
+public class SessionUser implements Serializable, UserDetails {
 
-	private String username;
-	private String password;
-	private boolean enabled;
-	private List<Roles> roles;
-	private Roles roless;
-	
-	@Override
-	public Collection<? extends GrantedAuthority> getAuthorities() {
-		return this.roles;
-	}
+    private String username;
 
-	@Override
-	public String getPassword() {
-		return this.password;
-	}
+    private String password;
 
-	@Override
-	public String getUsername() {
-		return this.username;
-	}
+    private boolean enabled;
 
-	@Override
-	public boolean isAccountNonExpired() {
-		return true;
-	}
+    private transient List<Roles> roles; // serialized or transient
 
-	@Override
-	public boolean isAccountNonLocked() {
-		return true;
-	}
+    private Roles roless;
 
-	@Override
-	public boolean isCredentialsNonExpired() {
-		return true;
-	}
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return this.roles;
+    }
 
-	@Override
-	public boolean isEnabled() {
-		return enabled;
-	}
+    @Override
+    public String getPassword() {
+        return this.password;
+    }
 
-	public void setEnabled(boolean enabled) {
-		this.enabled = enabled;
-	}
+    @Override
+    public String getUsername() {
+        return this.username;
+    }
 
-	public List<Roles> getRoles() {
-		return roles;
-	}
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
 
-	public void setRoles(List<Roles> roles) {
-		this.roles = roles;
-	}
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
 
-	public void setUsername(String username) {
-		this.username = username;
-	}
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
 
-	public void setPassword(String password) {
-		this.password = password;
-	}
+    @Override
+    public boolean isEnabled() {
+        return enabled;
+    }
 
-	@Override
-	public String toString() {
-		return "SessionUser [username=" + username + ", password=" + password + ", enabled=" + enabled + ", roles="
-				+ roless + "]";
-	}
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
+    }
 
-	public Roles getRoless() {
-		return roless;
-	}
+    public List<Roles> getRoles() {
+        return roles;
+    }
 
-	public void setRoless(Roles roless) {
-		this.roless = roless;
-	}
+    public void setRoles(List<Roles> roles) {
+        this.roles = roles;
+    }
 
-	
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    @Override
+    public String toString() {
+        return "SessionUser [username=" + username + ", password=" + password + ", enabled=" + enabled + ", roles="
+            + roless + "]";
+    }
+
+    public Roles getRoless() {
+        return roless;
+    }
+
+    public void setRoless(Roles roless) {
+        this.roless = roless;
+    }
 
 }
