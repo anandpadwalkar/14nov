@@ -1,5 +1,6 @@
 package com.iitms.rfcampusdata.authentication.entity;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.persistence.CascadeType;
@@ -187,16 +188,59 @@ public class Society {
     public int getCreateBy() {
         return createdBy;
     }
-    // code -1
-    // .print(e);
-    // }
-    // }
 
-    // code-2
-    // .print(e);
-    // }
+    public void setCreateBy(int createBy) {
+        this.createdBy = createBy;
+    }
 
-    // }
+    public String getCreateDt() {
+        String Date = "";
+        if (modifiedDt != null) {
+            Date = new SimpleDateFormat("dd-MM-yyyy").format(modifiedDt);
+        } else {
+            Date = new SimpleDateFormat("dd-MM-yyyy").format(new Date());
+        }
+        return Date;
+    }
+
+    /*
+     * public void setCreateDt(String createDt) { try { this.createDt = new
+     * SimpleDateFormat("dd-MM-yyyy").parse(createDt); } catch (Exception e) { System.out.print(e); } }
+     */
+    public void setCreateDt(Date createDt) {
+        try {
+            this.createDt = createDt;
+        } catch (Exception e) {
+            System.out.print(e);
+        }
+    }
+
+    public int getModifiedBy() {
+        return modifiedBy;
+    }
+
+    public void setModifiedBy(int modifiedBy) {
+        this.modifiedBy = modifiedBy;
+    }
+
+    public String getModifiedDt() {
+        String Date = "";
+        if (modifiedDt != null) {
+            Date = new SimpleDateFormat("dd-MM-yyyy").format(modifiedDt);
+        } else {
+            Date = new SimpleDateFormat("dd-MM-yyyy").format(new Date());
+        }
+        return Date;
+    }
+
+    public void setModifiedDt(Date modifiedDt) {
+        try {
+            this.modifiedDt = modifiedDt;
+        } catch (Exception e) {
+            System.out.print(e);
+        }
+
+    }
 
     @Override
     public String toString() {
