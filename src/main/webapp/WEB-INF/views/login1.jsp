@@ -1,4 +1,4 @@
-<%@page session="false" %>
+<%@page session="false"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html>
 <head>
@@ -166,11 +166,20 @@
 	text-align: left;
 }
 </style>
+<link href="<c:url value= "/resources/plugins/virtualkeyboard/css/keyboard.css" />" rel="stylesheet" />
+<script type="text/javascript" src="<c:url value= "/resources/plugins/virtualkeyboard/js/jquery.keyboard.js" />"></script>
+<script type="text/javascript" src="<c:url value= "/resources/plugins/virtualkeyboard/js/jquery.keyboard.extension-typing.js" />"></script>
+<script type="text/javascript">
+		$(document).ready(function() {
+			$('.txtField').keyboard()
+		});
+	</script>
+	
 </head>
 
 <body class="breakpoint-1200">
 	<img id="test" src="resources/bootstrap/img/minebg.jpg"
-		style="position: absolute; width: 100%; height: 100%">
+		style="position: absolute; width: 100%; height: 100%">	
 
 	<!-- Header -->
 
@@ -188,8 +197,7 @@
 	<!-- Header -->
 
 	<form class="form-vertical login-form"
-		action="/rfcampuspresentation/j_spring_security_check"
-		method="post"
+		action="/rfcampuspresentation/j_spring_security_check" method="post"
 		style="position: relative; width: 100%; height: 100%; z-index: 200">
 
 		<!-- Left Spacing -->
@@ -204,7 +212,7 @@
 				<!-- <label class="user_id_pwd" for="emailId">Login ID</label> -->
 
 				<i class="icon-user input-group"></i> <input type="text" value=""
-					class="txtField" name="username" placeholder="xyz@gmail.com"
+					class="txtField" name="username" placeholder="xyz@gmail.com" id="txtkeyboard"
 					maxlength="60" autofocus data-rule-required="true"
 					data-msg-required="Please enter your username.">
 			</p>
@@ -245,6 +253,9 @@
 	</form>
 
 	<!-- for windows virtual keyboard -->
+
+	
+
 
 
 </body>
