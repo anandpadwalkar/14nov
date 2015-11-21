@@ -58,75 +58,18 @@ public class MainMenuEntity implements Serializable {
      * @JoinColumn(name = "\"P_MENU_ID\"", referencedColumnName = "menu_id", insertable = false, updatable = false,
      * nullable = false) private List<SubMenuEntity> subMenus;
      */
-
-    public int getMenuId() {
-        return menuId;
-    }
-
-    public void setMenuId(int menuId) {
-        this.menuId = menuId;
-    }
-
-    public String getMenuName() {
-        return menuName;
-    }
-
-    public void setMenuName(String menuName) {
-        this.menuName = menuName;
-    }
-
-    public int getModuleId() {
-        return moduleId;
-    }
-
-    public void setModuleId(int moduleId) {
-        this.moduleId = moduleId;
-    }
-
-    public String getMenuTooltip() {
-        return menuTooltip;
-    }
-
-    public void setMenuTooltip(String menuTooltip) {
-        this.menuTooltip = menuTooltip;
-    }
-
-    public String getMenuLink() {
-        return menuLink;
-    }
-
-    public void setMenuLink(String menuLink) {
-        this.menuLink = menuLink;
-    }
-
-    public String getMenuSerialNumber() {
-        return menuSerialNumber;
-    }
-
-    public void setMenuSerialNumber(String menuSerialNumber) {
-        this.menuSerialNumber = menuSerialNumber;
-    }
-
-    public int getMenuStatus() {
-        return menuStatus;
-    }
-
-    public void setMenuStatus(int menuStatus) {
-        this.menuStatus = menuStatus;
-    }
-
-    public String getIpAddress() {
-        return ipAddress;
-    }
-
-    public void setIpAddress(String ipAddress) {
-        this.ipAddress = ipAddress;
-    }
-
-    public String getMacAddress() {
-        return macAddress;
-    }
-
+    /*
+     * public int getMenuId() { return menuId; } public void setMenuId(int menuId) { this.menuId = menuId; } public
+     * String getMenuName() { return menuName; } public void setMenuName(String menuName) { this.menuName = menuName; }
+     * public int getModuleId() { return moduleId; } public void setModuleId(int moduleId) { this.moduleId = moduleId; }
+     * public String getMenuTooltip() { return menuTooltip; } public void setMenuTooltip(String menuTooltip) {
+     * this.menuTooltip = menuTooltip; } public String getMenuLink() { return menuLink; } public void setMenuLink(String
+     * menuLink) { this.menuLink = menuLink; } public String getMenuSerialNumber() { return menuSerialNumber; } public
+     * void setMenuSerialNumber(String menuSerialNumber) { this.menuSerialNumber = menuSerialNumber; } public int
+     * getMenuStatus() { return menuStatus; } public void setMenuStatus(int menuStatus) { this.menuStatus = menuStatus;
+     * } public String getIpAddress() { return ipAddress; } public void setIpAddress(String ipAddress) { this.ipAddress
+     * = ipAddress; } public String getMacAddress() { return macAddress; }
+     */
     public void setMacAddress(String macAddress) {
         this.macAddress = macAddress;
     }

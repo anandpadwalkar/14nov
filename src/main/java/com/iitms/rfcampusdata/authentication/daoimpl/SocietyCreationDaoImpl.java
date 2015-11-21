@@ -60,7 +60,6 @@ public class SocietyCreationDaoImpl implements SocietyCreationDao {
             .add(Restrictions.eq("socId", socid))
             .setResultTransformer(new AliasToBeanResultTransformer(SocietyCreationModel.class)).uniqueResult();
 
-        
         List<Integer> moduleIds =
             session.createCriteria(CollegeModuleMasterEntity.class).setProjection(Projections.property("moduleId"))
                 .add(Restrictions.eq("societyId", entity.getSocId())).list();

@@ -73,6 +73,30 @@ public class MenuMasterEntity implements Serializable {
      * HashSet<MenuMasterEntity>();
      */
 
+    /*
+     * public int getMenuId() { return menuId; } public void setMenuId(int menuId) { this.menuId = menuId; } public
+     * String getMenuName() { return menuName; } public void setMenuName(String menuName) { this.menuName = menuName; }
+     * public int getModuleId() { return moduleId; } public void setModuleId(int moduleId) { this.moduleId = moduleId; }
+     * public String getMenuTooltip() { return menuTooltip; } public void setMenuTooltip(String menuTooltip) {
+     * this.menuTooltip = menuTooltip; } /* public int getParentMenuId() { return parentMenuId; } public void
+     * setParentMenuId(int parentMenuId) { this.parentMenuId = parentMenuId; } public String getMenuLink() { return
+     * menuLink; } public void setMenuLink(String menuLink) { this.menuLink = menuLink; } public String
+     * getMenuSerialNumber() { return menuSerialNumber; } public void setMenuSerialNumber(String menuSerialNumber) {
+     * this.menuSerialNumber = menuSerialNumber; } public int getMenuStatus() { return menuStatus; } public void
+     * setMenuStatus(int menuStatus) { this.menuStatus = menuStatus; } public List<MenuMasterEntity> getSubMenu() {
+     * return subMenu; } public void setSubMenu(List<MenuMasterEntity> subMenu) { this.subMenu = subMenu; }
+     * @Override public int hashCode() { final int prime = 31; int result = 1; result = prime * result + ((menuName ==
+     * null) ? 0 : menuName.hashCode()); return result; }
+     */
+
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((menuName == null) ? 0 : menuName.hashCode());
+        return result;
+    }
+
     public int getMenuId() {
         return menuId;
     }
@@ -105,11 +129,6 @@ public class MenuMasterEntity implements Serializable {
         this.menuTooltip = menuTooltip;
     }
 
-    /*
-     * public int getParentMenuId() { return parentMenuId; } public void setParentMenuId(int parentMenuId) {
-     * this.parentMenuId = parentMenuId; }
-     */
-
     public String getMenuLink() {
         return menuLink;
     }
@@ -134,25 +153,12 @@ public class MenuMasterEntity implements Serializable {
         this.menuStatus = menuStatus;
     }
 
-    /*
-     * public SubMenuEntity getMainMenu() { return mainMenu; } public void setMainMenu(SubMenuEntity mainMenu) {
-     * this.mainMenu = mainMenu; }
-     */
-
     public List<MenuMasterEntity> getSubMenu() {
         return subMenu;
     }
 
     public void setSubMenu(List<MenuMasterEntity> subMenu) {
         this.subMenu = subMenu;
-    }
-
-    @Override
-    public int hashCode() {
-        final int prime = 31;
-        int result = 1;
-        result = prime * result + ((menuName == null) ? 0 : menuName.hashCode());
-        return result;
     }
 
     @Override
