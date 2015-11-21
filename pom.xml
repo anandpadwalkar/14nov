@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-    Copyright (c) 2015 MasterSoft.
-    Team Java
-    All rights reserved.
- -->
+<!-- Copyright (c) 2015 MasterSoft. Team Java All rights reserved. -->
 
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
@@ -254,12 +250,12 @@
 		</dependency>
 
 		<!-- Test -->
-		
- <dependency>
-	<groupId>junit</groupId>
-	<artifactId>junit</artifactId>
-	<version>4.11</version>
-</dependency>
+
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.11</version>
+		</dependency>
 
 
 		<dependency>
